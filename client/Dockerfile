@@ -2,6 +2,7 @@ FROM node:16-alpine as builder
 
 USER node
 
+RUN npm config set unsafe-perm true
 WORKDIR '/app'
 COPY --chown=node:node ./package.json ./
 RUN npm install
