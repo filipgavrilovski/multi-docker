@@ -15,7 +15,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Run tests
         run: docker build -t filipgavrilovski/react-test -f ../../client/Dockerfile.dev ../../client
-        run: docker run -e CI=true filipgavrilovski/react-test npm test
+      - run: docker run -e CI=true filipgavrilovski/react-test npm test
       - name: Build images
         run: docker build -t filipgavrilovski/multi-client ../../client
         run: docker build -t filipgavrilovski/multi-nginx ../../nginx
